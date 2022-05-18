@@ -29,7 +29,7 @@ const relevantEvents = new Set([
   'customer.subscription.deleted',
 ])
 
-export default async function (req: NextApiRequest, res: NextApiResponse) {
+export default async function Webhooks(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const buff = await buffer(req)
     const secret = req.headers['stripe-signature']
