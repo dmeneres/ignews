@@ -17,8 +17,6 @@ const Subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST'){
     const session = await getSession({ req })
 
-
-
     const user = await fauna.query<User>(
       q.Get(
         q.Match(
@@ -48,8 +46,6 @@ const Subscribe = async (req: NextApiRequest, res: NextApiResponse) => {
 
       customerId = stripeCustomer.id
     }
-
-
 
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
       customer: customerId,
