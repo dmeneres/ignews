@@ -5,7 +5,6 @@ import { RichText } from 'prismic-dom'
 import { getPrismicClient } from "../../services/prismic";
 import styles from "./styles.module.scss";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 
 type Post = {
   slug: string;
@@ -28,7 +27,7 @@ export default function Posts({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           { posts.map(post => (
-            <Link key={post.slug} href={`/posts/${post.slug}`}>
+            <Link key={post.slug} href={`/posts/preview/${post.slug}`}>
               <a>
                 <time>{post.updatedAt}</time>
                 <strong>{post.title}</strong>
